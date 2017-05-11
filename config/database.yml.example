@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  username: postgres
+  password: postgres
+
+development:
+  <<: *default
+  database: ecomap_development
+
+test:
+  <<: *default
+  database: ecomap_test
+
+production:
+  <<: *default
+  database: ecomap_production
