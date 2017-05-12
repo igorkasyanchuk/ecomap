@@ -1,0 +1,21 @@
+.nav-side-menu
+  .brand
+    = link_to 'Ecomap', root_path
+  = fa_icon 'bars 2x', class: 'toggle-btn', data: { target: '#menu-content', toggle: 'collapse' }
+  .menu-list
+    ul#menu-content.menu-content.collapse.out
+      li class=active_class_by('admin/dashboard')
+        = link_to admin_root_path do
+          = fa_icon 'dashboard lg', text: 'Dashboard'
+      li class=active_class_by('admin/pages')
+        = link_to admin_pages_path do
+          = fa_icon 'file-code-o lg', text: 'Pages'
+      li
+        = link_to '#' do
+          = fa_icon 'user lg', text: 'Profile'
+      li
+        = link_to '#' do
+          = fa_icon 'users lg', text: 'Users'
+      li
+        = link_to destroy_user_session_path, method: :delete do
+          = fa_icon 'sign-out lg', text: 'Logout'
