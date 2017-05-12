@@ -54,6 +54,12 @@ GEM
     bcrypt (3.1.11)
     builder (3.2.3)
     byebug (9.0.6)
+    ckeditor (4.2.3)
+      cocaine
+      orm_adapter (~> 0.5.0)
+    climate_control (0.1.0)
+    cocaine (0.5.8)
+      climate_control (>= 0.0.3, < 1.0)
     coderay (1.1.1)
     coffee-rails (4.2.1)
       coffee-script (>= 2.2.0)
@@ -84,6 +90,10 @@ GEM
     faraday (0.11.0)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.18)
+    font-awesome-rails (4.7.0.2)
+      railties (>= 3.2, < 5.2)
+    friendly_id (5.2.0)
+      activerecord (>= 4.0.0)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
     hashie (3.5.5)
@@ -97,6 +107,18 @@ GEM
       thor (>= 0.14, < 2.0)
     json (2.1.0)
     jwt (1.5.6)
+    kaminari (1.0.1)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.0.1)
+      kaminari-activerecord (= 1.0.1)
+      kaminari-core (= 1.0.1)
+    kaminari-actionview (1.0.1)
+      actionview
+      kaminari-core (= 1.0.1)
+    kaminari-activerecord (1.0.1)
+      activerecord
+      kaminari-core (= 1.0.1)
+    kaminari-core (1.0.1)
     less (2.6.0)
       commonjs (~> 0.2.7)
     less-rails (2.8.0)
@@ -116,6 +138,7 @@ GEM
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
+    mimemagic (0.3.2)
     mini_portile2 (2.1.0)
     minitest (5.10.2)
     multi_json (1.12.1)
@@ -153,6 +176,12 @@ GEM
     omniauth-vkontakte (1.4.0)
       omniauth-oauth2 (~> 1.2)
     orm_adapter (0.5.0)
+    paperclip (5.1.0)
+      activemodel (>= 4.2.0)
+      activesupport (>= 4.2.0)
+      cocaine (~> 0.5.5)
+      mime-types
+      mimemagic (~> 0.3.0)
     pg (0.20.0)
     pry (0.10.4)
       coderay (~> 1.1.0)
@@ -267,12 +296,16 @@ DEPENDENCIES
   annotate
   any_login
   byebug
+  ckeditor
   coffee-rails (~> 4.2)
   devise
   factory_girl_rails
   faker
+  font-awesome-rails
+  friendly_id
   jbuilder (~> 2.5)
   jquery-rails
+  kaminari
   listen
   omniauth
   omniauth-facebook
@@ -280,6 +313,7 @@ DEPENDENCIES
   omniauth-linkedin
   omniauth-twitter
   omniauth-vkontakte
+  paperclip
   pg (~> 0.18)
   pry
   puma (~> 3.0)

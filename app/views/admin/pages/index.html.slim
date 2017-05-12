@@ -1,0 +1,36 @@
+.row
+  .col-md-12
+    .row
+      .col-md-8
+        h1 Pages
+
+      .col-md-4
+        br
+        .pull-right
+          = link_to new_admin_page_path, class: 'btn btn-default' do
+            = fa_icon 'plus'
+            =< 'New Page'
+
+.row
+  .col-md-12
+    table.table.table-hover
+      thead
+        tr
+          th ID
+          th Title
+          th.text-right Actions
+      tbody
+        - @pages.each do |page|
+          tr
+            td= page.id
+            td= page.title
+            td.text-right
+              .btn-group
+                = link_to page, class: 'btn btn-info btn-sm' do
+                  = fa_icon 'eye'
+                = link_to [:edit, :admin, page], class: 'btn btn-warning btn-sm' do
+                  = fa_icon 'pencil-square-o'
+                = link_to [:admin, page], method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: 'Are you sure?' } do
+                  = fa_icon 'trash-o'
+
+= paginate @pages

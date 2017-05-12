@@ -1,0 +1,14 @@
+.row
+  .col-md-12
+    h1= @page.title
+
+    == @page.content.presence
+
+.clearfix
+
+- if current_user&.admin?
+  br
+  .row
+    .col-md-12
+      .well
+        = link_to 'Edit Page', edit_admin_page_path, class: 'btn btn-default'

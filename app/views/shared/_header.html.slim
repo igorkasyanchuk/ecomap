@@ -6,19 +6,19 @@ nav.navbar.navbar-default
         span.icon-bar
         span.icon-bar
         span.icon-bar
-      = link_to 'Ecomap', '#', class: 'navbar-brand'
+      = link_to 'Ecomap', root_path, class: 'navbar-brand'
     #navbar.navbar-collapse.collapse
       ul.nav.navbar-nav
-        li.active
-          = link_to 'Home', '#'
-        li
-          = link_to 'About', '#about'
-        li
-          = link_to 'Contact', '#contact'
+        - Page.find_each do |page|
+          li
+            = link_to page.title, page
       ul.nav.navbar-nav.navbar-right
-        li.active
-          = link_to 'Home', '#'
-        li
-          = link_to 'About', '#about'
-        li
-          = link_to 'Contact', '#contact'
+        - if current_user
+          - if current_user.admin?
+            li
+              = link_to 'Admin', admin_root_path
+          li
+            = link_to 'Logout', destroy_user_session_path, method: :delete
+        - else
+          li
+            = link_to 'Login', new_user_session_path

@@ -1,0 +1,11 @@
+.form.form-group
+  = simple_form_for [:admin, @page], method: method do |f|
+    = f.input :title, class: 'form-control'
+    = f.label :content
+    = f.cktext_area :content, cols: 40
+
+    .btn-group.page-form-btn
+      = f.button :button, class: 'btn-default' do
+        = fa_icon 'save', text: 'Save'
+      = link_to :back, class: 'btn btn-default' do
+        = fa_icon 'close', text: 'Cancel'

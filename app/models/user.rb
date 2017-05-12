@@ -15,6 +15,7 @@
 #  last_sign_in_ip        :inet
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  role                   :integer
 #
 
 class User < ApplicationRecord
@@ -25,4 +26,6 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: Identity::OMNIAUTH_PROVIDERS
 
   has_many :identities, dependent: :restrict_with_exception
+
+  enum role: %i(user moderator admin)
 end
