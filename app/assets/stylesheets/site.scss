@@ -1,3 +1,37 @@
+.header-empty {
+  height: 70px;
+}
+
 #map {
-  height: 800px;
+  position: fixed !important;
+  height: 1px;
+  width: 1px;
+}
+
+#show-map {
+  position: fixed;
+  z-index: 1;
+  bottom: 50px;
+  width: 100%;
+  text-align: center;
+
+  .button {
+    display: inline-block;
+    margin: 0 auto;
+    background: grey;
+    padding: 5px;
+    border-radius: 15px;
+    border: 2px solid;
+    cursor: pointer;
+  }
+}
+
+@media (min-width: 992px) {
+  .problems {
+    display: block !important;
+  }
+
+  #show-map {
+    display: none;
+  }
 }

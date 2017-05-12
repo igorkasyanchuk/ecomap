@@ -10,11 +10,23 @@
         position: uluru,
         map: map
       });
+      resizeMap();
     }
+
+    function resizeMap() {
+      var element = document.getElementById('map');
+      element.style.height = window.innerHeight - 90 + 'px';
+      element.style.width = element.parentElement.offsetWidth - 30 + 'px';
+    }
+
+    window.onresize = function(e) {
+      resizeMap();
+    }
+
   script async="" src="https://maps.googleapis.com/maps/api/js?key=#{Rails.application.secrets[:google_api_key]}&callback=initMap"
 
 .row
-  .col-md-6
+  .col-md-6.problems
     - 5.times do
       .panel class=("panel-#{%w(success danger).sample}")
         .panel-heading

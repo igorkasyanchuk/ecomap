@@ -14,4 +14,11 @@ html
     .container-fluid
       = yield
 
+    #show-map
+      .button
+        .show-map
+          ' Show map
+        .hide-map.hide
+          ' Show problems
+
     = any_login_here if Rails.env.development?
