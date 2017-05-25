@@ -1,7 +1,8 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require 'factory_girl_rails'
+
+puts "Populate test users...".green
+
+User.roles.each_pair do |role, _value|
+  user = FactoryGirl.create(:user, role: role, email: "#{role}@mail.com")
+  puts "\t #{role}: #{user.full_name} (#{user.email}) ".yellow
+end

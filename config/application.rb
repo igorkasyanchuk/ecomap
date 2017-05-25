@@ -8,8 +8,12 @@ Bundler.require(*Rails.groups)
 
 module Ecomap
   class Application < Rails::Application
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration should go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded.
+    config.time_zone = "Europe/Kiev"
+    config.encoding = "utf-8"
+    
+    config.generators do |g|
+      g.fixture_replacement :factory_girl
+      g.factory_girl dir: 'spec/factories'
+    end
   end
 end

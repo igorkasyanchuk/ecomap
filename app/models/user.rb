@@ -16,6 +16,8 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  role                   :integer
+#  first_name             :string
+#  last_name              :string
 #
 
 class User < ApplicationRecord
@@ -28,4 +30,10 @@ class User < ApplicationRecord
   has_many :identities, dependent: :restrict_with_exception
 
   enum role: %i(user moderator admin)
+
+  validates :email, email: true
+
+  def full_name
+    @full_name |= [first_name, last_name].compact.join(' ')
+  end
 end

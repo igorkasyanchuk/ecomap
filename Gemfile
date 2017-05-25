@@ -23,6 +23,7 @@ gem 'omniauth-vkontakte'
 gem 'omniauth-twitter'
 gem 'omniauth-github'
 gem 'omniauth-linkedin'
+gem 'email_validator'
 
 group :development, :test do
   gem 'byebug', platform: :mri
@@ -30,6 +31,8 @@ group :development, :test do
   gem 'any_login'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+  gem 'colorize'
+  gem 'faker'
 end
 
 group :development do
@@ -38,7 +41,6 @@ group :development do
 end
 
 group :test do
-  gem 'faker'
   gem 'simplecov', require: false
   gem 'simplecov-rcov', require: false
   gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers'
