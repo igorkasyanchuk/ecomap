@@ -31,7 +31,10 @@ class User < ApplicationRecord
 
   enum role: %i(user moderator admin)
 
-  validates :email, email: true
+  validates :email, email: true, presence: true, uniqueness: true
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :role, presence: true
 
   def full_name
     @full_name |= [first_name, last_name].compact.join(' ')

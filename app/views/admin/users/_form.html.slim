@@ -1,0 +1,15 @@
+.form.form-group
+  = simple_form_for [:admin, @user], method: method do |f|
+    = f.input :first_name, class: 'form-control'
+    = f.input :last_name, class: 'form-control'
+    = f.input :email, class: 'form-control'
+    = f.input :role, as: :select, collection: User.roles.keys.to_a, class: 'form-control'
+    = f.input :password, class: 'form-control'
+    = f.input :password_confirmation, class: 'form-control'
+    
+
+    .btn-group.page-form-btn
+      = f.button :button, class: 'btn-default' do
+        = fa_icon 'save', text: 'Save'
+      = link_to :back, class: 'btn btn-default' do
+        = fa_icon 'close', text: 'Cancel'

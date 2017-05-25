@@ -1,0 +1,43 @@
+.row
+  .col-md-12
+    .row
+      .col-md-8
+        h1 User
+
+      .col-md-4
+        br
+        .pull-right
+          = link_to new_admin_user_path, class: 'btn btn-default' do
+            = fa_icon 'plus'
+            =< 'New User'
+
+.row
+  .col-md-12
+    table.table.table-hover
+      thead
+        tr
+          th ID
+          th First name
+          th Last name
+          th Email
+          th Role
+          th.text-right Actions
+      tbody
+        - @users.each do |user|
+          tr
+            td= user.id
+            td= user.first_name
+            td= user.last_name
+            td= user.email
+            td= user.role
+
+            td.text-right
+              .btn-group
+                / = link_to [:admin, user], class: 'btn btn-info btn-sm' do
+                /   = fa_icon 'eye'
+                = link_to [:edit, :admin, user], class: 'btn btn-warning btn-sm' do
+                  = fa_icon 'pencil-square-o'
+                = link_to [:admin, user], method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: 'Are you sure?' } do
+                  = fa_icon 'trash-o'
+
+= paginate @users

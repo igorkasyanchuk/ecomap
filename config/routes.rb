@@ -11,5 +11,6 @@ Rails.application.routes.draw do
     root 'dashboard#index'
 
     resources :pages
+    resources :users, except: [:show]
   end
 end
