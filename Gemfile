@@ -24,6 +24,8 @@ gem 'omniauth-twitter'
 gem 'omniauth-github'
 gem 'omniauth-linkedin'
 gem 'email_validator'
+gem 'carrierwave'
+gem 'mini_magick'
 
 group :development, :test do
   gem 'byebug', platform: :mri
