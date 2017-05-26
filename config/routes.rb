@@ -12,5 +12,6 @@ Rails.application.routes.draw do
 
     resources :pages
     resources :users, except: [:show]
+    resources :problem_categories, except: [:show]
   end
 end

@@ -1,0 +1,37 @@
+.row
+  .col-md-12
+    .row
+      .col-md-8
+        h1 Problem categories
+
+      .col-md-4
+        br
+        .pull-right
+          = link_to new_admin_problem_category_path, class: 'btn btn-default' do
+            = fa_icon 'plus'
+            =< 'New Category'
+
+.row
+  .col-md-12
+    table.table.table-hover
+      thead
+        tr
+          th ID
+          th name
+          th marker
+          th.text-right Actions
+      tbody
+        - @problem_categories.each do |problem_category|
+          tr
+            td= problem_category.id
+            td= problem_category.name
+            td= image_tag problem_category.marker.url
+
+            td.text-right
+              .btn-group
+                = link_to [:edit, :admin, problem_category], class: 'btn btn-warning btn-sm' do
+                  = fa_icon 'pencil-square-o'
+                = link_to [:admin, problem_category], method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: 'Are you sure?' } do
+                  = fa_icon 'trash-o'
+
+= paginate @problem_categories

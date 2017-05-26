@@ -42,7 +42,11 @@ RSpec.configure do |config|
   # Filter lines from Rails gems in backtraces.
   config.filter_rails_from_backtrace!
   
-
   config.include(FactoryGirl::Syntax::Methods)
   config.include(Devise::Test::ControllerHelpers, type: :controller)
+
+  CarrierWave.configure do |config|
+    config.storage = :file
+    config.enable_processing = false
+  end
 end
