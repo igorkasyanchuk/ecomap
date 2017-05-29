@@ -1,0 +1,12 @@
+.form.form-group
+  = simple_form_for [:admin, @problem_category], method: method do |f|
+    = f.input :name, class: 'form-control'
+    = f.input :marker, class: 'form-control'
+
+    br
+
+    .btn-group.page-form-btn
+      = f.button :button, class: 'btn-default' do
+        = fa_icon 'save', text: 'Save'
+      = link_to :back, class: 'btn btn-default' do
+        = fa_icon 'close', text: 'Cancel'

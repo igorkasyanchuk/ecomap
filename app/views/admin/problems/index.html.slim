@@ -1,0 +1,51 @@
+.row
+  .col-md-12
+    .row
+      .col-md-8
+        h1 Problems
+
+      .col-md-4
+        br
+        .pull-right
+          = link_to new_admin_problem_category_path, class: 'btn btn-default' do
+            = fa_icon 'plus'
+            =< 'New Problem'
+
+.row
+  .col-md-12
+    table.table.table-hover
+      thead
+        tr
+          th ID
+          th Category
+          th Title
+          th Description
+          th Solution
+          th Author
+          th Moderated
+          th Solved
+          th Created at
+          th.text-right Actions
+      tbody
+        - @problems.each do |problem|
+          tr
+            td= problem.id
+            td= problem.problem_category.name
+            td= problem.title
+            td= truncate(problem.description, length: 80)
+            td= truncate(problem.solution, length: 80)
+            td= problem.author_name
+            th= yes_no(problem.moderated)
+            th= yes_no(problem.solved)
+            th= l problem.created_at, format: :long
+
+            td.text-right
+              .btn-group
+                = link_to [:admin, problem], class: 'btn btn-info btn-sm' do
+                  = fa_icon 'eye'
+                = link_to [:edit, :admin, problem], class: 'btn btn-warning btn-sm' do
+                  = fa_icon 'pencil-square-o'
+                = link_to [:admin, problem], method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: 'Are you sure?' } do
+                  = fa_icon 'trash-o'
+
+= paginate @problems

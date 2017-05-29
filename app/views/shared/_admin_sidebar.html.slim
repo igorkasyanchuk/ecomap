@@ -20,6 +20,10 @@
         = link_to admin_problem_categories_path do
           = fa_icon 'file-code-o lg', text: 'Problem categories'
 
+      li class=active_class_by('admin/problems')
+        = link_to admin_problems_path do
+          = fa_icon 'file-code-o lg', text: 'Problems'
+
       li
         = link_to '#' do
           = fa_icon 'user lg', text: 'Profile'

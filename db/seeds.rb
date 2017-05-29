@@ -21,3 +21,9 @@ puts "Populate problems categories...".green
   category = FactoryGirl.create(:problem_category, name: name, marker: File.open(Rails.root.join('app', 'assets', 'images', 'markers', "marker_#{index.next}.png")))
   puts "\t #{category.name} ".yellow
 end
+
+puts "Populate problems...".green
+ProblemCategory.find_each do |category|
+  problem = FactoryGirl.create :problem, problem_category: category
+  puts "\t #{problem.title} ".yellow
+end
