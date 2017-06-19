@@ -26,6 +26,7 @@ gem 'omniauth-linkedin'
 gem 'email_validator'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'dotenv-rails'
 
 group :development, :test do
   gem 'byebug', platform: :mri

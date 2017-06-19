@@ -1,7 +1,22 @@
 .form.form-group
-  = simple_form_for [:admin, @problem_category], method: method do |f|
-    = f.input :name, class: 'form-control'
-    = f.input :marker, class: 'form-control'
+  = simple_form_for [:admin, @problem], method: method do |f|
+  	= f.association  :problem_category, label_method: :name, value_method: :id, include_blank: 'Problem category', class: 'form-control'
+    = f.input :title, class: 'form-control'
+	= f.input :description, class: 'form-control'
+	= f.input :solution, class: 'form-control'
+	= f.input :lat, class: 'form-control'
+	= f.input :lng, class: 'form-control'
+	= f.input :moderated, class: 'form-control'
+	= f.input :solved, class: 'form-control'
+	= f.input :likes, class: 'form-control'
+	= f.input :user_id, class: 'form-control'
+	= f.input :stars, class: 'form-control'
+
+    / = f.simple_fields_for :post_attachments do |p|
+    /  .field
+    /    = p.label :avatar
+    /    <br>
+    /    = p.file_field :avatar, :multiple => true, name:     "post_attachments[avatar][]" 
 
     br
 

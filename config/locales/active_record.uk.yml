@@ -1,0 +1,15 @@
+en:
+  activerecord:
+    models:
+      user: Користувач
+    attributes:
+      user:
+        id: ID
+        email: Email
+        created_at: Created
+        updated_at: Updated
+        first_name: Ім'я
+        last_name: Прізвище
+        role: Роль
+        password: Пароль
+        password_confirmation: Підтвердження паролю

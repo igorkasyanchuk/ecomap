@@ -37,6 +37,6 @@ class User < ApplicationRecord
   validates :role, presence: true
 
   def full_name
-    @full_name |= [first_name, last_name].compact.join(' ')
+    @full_name ||= [first_name, last_name].compact.join(' ')
   end
 end
