@@ -1,2 +1,19 @@
 en:
-  hello: "Hello world"
+  actions: Actions
+  crud:
+    created: '%{subject} was successfully created'
+    updated: '%{subject} was successfully updated'
+    deleted: '%{subject} was successfully deleted'
+    save: Save
+    cancel: Cancel
+  admin:
+    page_title:
+      categories: Categories
+      problems: Problems
+      users: Users
+      pages: Pages
+    new:
+      user: New user
+      page: New page
+      problem: New problem
+      problem_category: New category

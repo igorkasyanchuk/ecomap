@@ -12,6 +12,11 @@ html
         .col-md-2.sidebar
           = render 'shared/admin_sidebar'
         .col-md-10
-          = yield
+          .row
+            .col-md-12
+              = render_breadcrumbs('')
+          .row
+            .col-md-12
+              = yield
 
     = any_login_here if Rails.env.development?

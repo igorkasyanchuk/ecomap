@@ -29,4 +29,8 @@ class Problem < ApplicationRecord
       'Анонім'
     end
   end
+
+  def to_s
+  	"#{author_name}: #{title}"
+  end
 end

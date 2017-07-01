@@ -1,0 +1,43 @@
+uk:
+  activerecord:
+    models:
+      user: Користувач
+      problem: Проблема
+      problem_category: Категорія
+      page: Сторінка
+    attributes:
+      user:
+        id: ID
+        email: Email
+        created_at: Створено
+        updated_at: Обновлено
+        first_name: Ім'я
+        last_name: Прізвище
+        role: Роль
+        password: Пароль
+        password_confirmation: Підтвердження паролю
+      page:
+        title: Заголовок
+        content: Content
+        slug: Параметер
+        created_at: Створено
+        updated_at: Обновлено
+      problem:
+        title: Заголовок
+        description: Опис
+        solution: Рішення
+        lat: lat
+        lng: lng
+        problem_category_id: Категорія
+        moderated: Модеровано
+        solved: Вирішено
+        likes: Сподобалось
+        user_id: Автор
+        stars: Зірок
+        created_at: Створено
+        updated_at: Обновлено
+      problem_category:
+        name: Назва
+        marker: Маркер
+        created_at: Створено
+        updated_at: Обновлено

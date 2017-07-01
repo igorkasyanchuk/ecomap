@@ -1,20 +1,20 @@
-en:
+uk:
   breadcrumbs:
     application:
-      root: "Index"
+      root: "Список"
     pages:
-      pages: "Pages"
+      pages: "Сторінки"
   helpers:
     actions: "Дії"
     links:
-      back: "Назад"
-      cancel: "Відміна"
-      confirm: "Are you sure?"
-      destroy: "Delete"
-      new: "New"
-      edit: "Edit"
+      back: "Повернутися"
+      cancel: "Відмінити"
+      confirm: "Ви впевнені?"
+      destroy: "Видалити"
+      new: "Новий"
+      edit: "Редагувати"
     titles:
-      edit: "Edit %{model}"
-      save: "Save %{model}"
-      new: "New %{model}"
-      delete: "Delete %{model}"
+      edit: "Редагувати %{model}"
+      save: "Зберегти %{model}"
+      new: "Новий(а) %{model}"
+      delete: "Видалити %{model}"

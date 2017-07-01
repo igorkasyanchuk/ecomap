@@ -1,0 +1,21 @@
+en:
+  breadcrumbs:
+    admin:
+      dashboard: 
+        index: Dashboard
+      pages:
+        index: Pages
+        new: New page
+        edit: Edit page
+      problem_categories:
+        index: Problem categories
+        new: New category
+        edit: Edit category
+      problems:
+        index: Problems
+        new: New problem
+        edit: Edit problem
+      users:
+        index: Users
+        new: New user
+        edit: Edit user

@@ -2,26 +2,26 @@
   .col-md-12
     .row
       .col-md-8
-        h1 User
+        h1 = t('admin.page_title.users')
 
       .col-md-4
         br
         .pull-right
           = link_to new_admin_user_path, class: 'btn btn-default' do
             = fa_icon 'plus'
-            =< 'New User'
+            =< t('admin.new.user')
 
 .row
   .col-md-12
     table.table.table-hover
       thead
         tr
-          th ID
-          th First name
-          th Last name
-          th Email
-          th Role
-          th.text-right Actions
+          th = User.human_attribute_name(:id)
+          th = User.human_attribute_name(:first_name)
+          th = User.human_attribute_name(:last_name)
+          th = User.human_attribute_name(:email)
+          th = User.human_attribute_name(:role)
+          th.text-right = t('actions')
       tbody
         - @users.each do |user|
           tr

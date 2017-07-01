@@ -1,0 +1,21 @@
+uk:  
+  breadcrumbs:
+    admin:
+      dashboard: 
+        index: Головна
+      pages:
+        index: Ресурси(Сторінки)
+        new: Нова сторінка
+        edit: Редагування сторінки
+      problem_categories:
+        index: Категорії проблем
+        new: Нова категорія
+        edit: Редагування категорії
+      problems:
+        index: Проблеми
+        new: Нова проблема
+        edit: Редагування проблеми
+      users:
+        index: Користувачі
+        new: Новий користувач
+        edit: Редагування користувача

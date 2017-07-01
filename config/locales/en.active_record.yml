@@ -1,0 +1,44 @@
+en:
+  activerecord:
+    models:
+      user: User
+      problem: Problem
+      problem_category: Problem category
+      page: Page
+
+    attributes:
+      user:
+        id: ID
+        email: Email
+        created_at: Created
+        updated_at: Updated
+        first_name: First name
+        last_name: Last name
+        role: Role
+        password: Password
+        password_confirmation: Password confirmation
+      page:
+        title: Title
+        content: Content
+        slug: Slug
+        created_at: Created
+        updated_at: Updated
+      problem:
+        title: Title
+        description: Description
+        solution: Solution
+        lat: lat
+        lng: lng
+        problem_category_id: Problem category
+        moderated: Moderated
+        solved: Solved
+        likes: Likes
+        user_id: Author
+        stars: Stars
+        created_at: Created
+        updated_at: Updated
+      problem_category:
+        name: Name
+        marker: Marker
+        created_at: Created
+        updated_at: Updated

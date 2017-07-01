@@ -2,23 +2,23 @@
   .col-md-12
     .row
       .col-md-8
-        h1 Pages
+        h1 = t('admin.page_title.pages')
 
       .col-md-4
         br
         .pull-right
           = link_to new_admin_page_path, class: 'btn btn-default' do
             = fa_icon 'plus'
-            =< 'New Page'
+            =< t('admin.new.page')
 
 .row
   .col-md-12
     table.table.table-hover
       thead
         tr
-          th ID
-          th Title
-          th.text-right Actions
+          th = Page.human_attribute_name(:id)
+          th = Page.human_attribute_name(:title)
+          th.text-right = t('actions')
       tbody
         - @pages.each do |page|
           tr

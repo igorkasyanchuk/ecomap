@@ -1,2 +1,19 @@
 uk:
-  hello: "Hello world"
+  actions: Дії
+  crud:
+    created: '%{subject} додано успішно'
+    updated: '%{subject} обновлено успішно'
+    deleted: '%{subject} видалено успішно'
+    save: Зберегти
+    cancel: Відміна
+  admin:
+    page_title:
+      categories: Категорії
+      problems: Проблеми
+      users: Користувачі
+      pages: Ресурси
+    new:
+      user: Новий користувач
+      page: Новий ресурc
+      problem: Нова проблема
+      problem_category: Нова категорія

@@ -1,9 +1,16 @@
-class Admin::ProblemsController < Admin::BaseController
+class Admin::ProblemsController < Admin::ApplicationController
+  add_breadcrumb :index, :admin_problems_path
+
   def index
     @problems = Problem.page(params[:page])
   end
 
+  def show
+    add_breadcrumb resource.to_s
+  end
+
   def new
+    add_breadcrumb :new
     @problem = Problem.new
   end
 
@@ -11,13 +18,14 @@ class Admin::ProblemsController < Admin::BaseController
     @problem = Problem.new(problem_params)
 
     if @problem.save
-      redirect_to admin_problem_categories_path, notice: 'Problem was successfully created'
+      redirect_to admin_problem_categories_path, notice: t('crud.created', subject: resource_name)
     else
       render :new
     end
   end
 
   def edit
+    add_breadcrumb :edit
     @problem = resource
   end
 
@@ -25,7 +33,7 @@ class Admin::ProblemsController < Admin::BaseController
     @problem = resource
 
     if @problem.update(problem_params)
-      redirect_to admin_problem_categories_path, notice: 'Problem was successfully updated'
+      redirect_to admin_problem_categories_path, notice: t('crud.updated', subject: resource_name)
     else
       render :edit
     end
@@ -35,7 +43,7 @@ class Admin::ProblemsController < Admin::BaseController
     @problem = resource
     @problem.destroy
 
-    redirect_back(fallback_location: admin_problem_categories_path, notice: 'Problem was successfully deleted')
+    redirect_back(fallback_location: admin_problem_categories_path, notice: t('crud.deleted', subject: resource_name))
   end
 
   private
@@ -49,5 +57,9 @@ class Admin::ProblemsController < Admin::BaseController
       :title, :description, :solution, :lat, :lng, :problem_category_id, 
       :moderated, :solved, :likes, :user_id, :stars
     )
+  end
+
+  def resource_name
+    Problem.model_name.human
   end
 end

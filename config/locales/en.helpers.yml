@@ -1,0 +1,15 @@
+uk:  
+  helpers:
+    submit:
+      page:
+        create: Додати сторінку
+        update: Зберегти сторінку
+      user:
+        create: Додати користувача
+        update: Зберегти користувача
+      problem:
+        create: Додати проблему
+        update: Зберегти проблему
+      problem_category:
+        create: Додати категорію
+        update: Зберегти категорію

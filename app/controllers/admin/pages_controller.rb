@@ -1,9 +1,12 @@
-class Admin::PagesController < Admin::BaseController
+class Admin::PagesController < Admin::ApplicationController
+  add_breadcrumb :index, :admin_pages_path
+
   def index
     @pages = Page.page(params[:page])
   end
 
   def new
+    add_breadcrumb :new
     @page = Page.new
   end
 
@@ -11,13 +14,14 @@ class Admin::PagesController < Admin::BaseController
     @page = Page.new(page_params)
 
     if @page.save
-      redirect_to admin_pages_path, notice: 'Page was successfully created'
+      redirect_to admin_pages_path, notice: t('crud.created', subject: resource_name) 
     else
       render :new
     end
   end
 
   def edit
+    add_breadcrumb :edit
     @page = resource
   end
 
@@ -25,7 +29,7 @@ class Admin::PagesController < Admin::BaseController
     @page = resource
 
     if @page.update(page_params)
-      redirect_to admin_pages_path, notice: 'Page was successfully updated'
+      redirect_to admin_pages_path, notice: t('crud.updated', subject: resource_name) 
     else
       render :edit
     end
@@ -35,7 +39,7 @@ class Admin::PagesController < Admin::BaseController
     @page = resource
     @page.destroy
 
-    redirect_back(fallback_location: admin_pages_path, notice: 'Page was successfully deleted')
+    redirect_back(fallback_location: admin_pages_path, notice: t('crud.deleted', subject: resource_name))
   end
 
   private
@@ -46,5 +50,9 @@ class Admin::PagesController < Admin::BaseController
 
   def page_params
     params.require(:page).permit(:identifier, :content, :position, :title)
+  end
+
+  def resource_name
+    Page.model_name.human
   end
 end

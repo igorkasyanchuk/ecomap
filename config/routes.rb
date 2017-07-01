@@ -1,18 +1,19 @@
 Rails.application.routes.draw do
-  root 'site#index'
-
   mount Ckeditor::Engine => '/ckeditor'
 
-  devise_for :users
+  scope '(:locale)', local: /[a-z_\-]{2,6}}/i do
+    devise_for :users, skip: :omniauth_callbacks
+    resources :pages, only: [:show]
 
-  resources :pages, only: [:show]
+    root 'site#index'
 
-  namespace :admin do
-    root 'dashboard#index'
+    namespace :admin do
+      root 'dashboard#index'
 
-    resources :pages
-    resources :users, except: [:show]
-    resources :problem_categories, except: [:show]
-    resources :problems
+      resources :pages
+      resources :users, except: [:show]
+      resources :problem_categories, except: [:show]
+      resources :problems
+    end
   end
 end
