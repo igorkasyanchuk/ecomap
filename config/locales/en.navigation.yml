@@ -19,3 +19,12 @@ en:
         index: Users
         new: New user
         edit: Edit user
+  menu:
+    admin:
+      dashboard: Dashboard
+      pages: Pages
+      users: Users
+      problem_categories: Problem categories
+      problems: Problems
+      profile: Profile
+      logout: Logout

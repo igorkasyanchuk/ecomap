@@ -19,3 +19,13 @@ uk:
         index: Користувачі
         new: Новий користувач
         edit: Редагування користувача
+
+  menu:
+    admin:
+      dashboard: Головна
+      pages: Ресурси(Сторінки)
+      users: Користувачі
+      problem_categories: Категорії
+      problems: Проблеми
+      profile: Профайл
+      logout: Вихід

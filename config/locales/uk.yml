@@ -1,5 +1,9 @@
 uk:
   actions: Дії
+  action:
+    edit: Редагувати
+    delete: Видалити
+    upload: Завантажити
   crud:
     created: '%{subject} додано успішно'
     updated: '%{subject} обновлено успішно'
@@ -17,3 +21,6 @@ uk:
       page: Новий ресурc
       problem: Нова проблема
       problem_category: Нова категорія
+  delete_confirmation: Видалити?
+  yes_value: Так
+  no_value: Ні

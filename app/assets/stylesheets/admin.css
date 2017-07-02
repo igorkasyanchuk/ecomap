@@ -1,5 +1,6 @@
 /*
 *= require_self
 *= require bootstrap_and_overrides
-*= require site_styles
+*= require bootstrap_notify
+*= require admin_styles
 */

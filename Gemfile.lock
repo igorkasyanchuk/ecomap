@@ -52,6 +52,9 @@ GEM
       rails (>= 4.0.0)
     arel (7.1.4)
     bcrypt (3.1.11)
+    bootstrap_notify (0.0.5)
+      jquery-rails
+      rails (>= 3.2.8)
     builder (3.2.3)
     byebug (9.0.6)
     carrierwave (1.1.0)
@@ -75,6 +78,7 @@ GEM
     colorize (0.8.1)
     commonjs (0.2.7)
     concurrent-ruby (1.0.5)
+    database_cleaner (1.6.1)
     devise (4.3.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -308,11 +312,13 @@ PLATFORMS
 DEPENDENCIES
   annotate
   any_login
+  bootstrap_notify
   byebug
   carrierwave
   ckeditor
   coffee-rails (~> 4.2)
   colorize
+  database_cleaner
   devise
   dotenv-rails
   email_validator

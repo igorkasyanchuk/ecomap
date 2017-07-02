@@ -4,6 +4,6 @@ module AdminHelper
   end
 
   def yes_no(value)
-    !!value ? 'Yes' : 'No'
+    !!value ? I18n.t('yes_value') : I18n.t('no_value')
   end
 end

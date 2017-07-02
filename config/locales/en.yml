@@ -1,5 +1,9 @@
 en:
   actions: Actions
+  action:
+    edit: Edit
+    delete: Delete
+    upload: Upload
   crud:
     created: '%{subject} was successfully created'
     updated: '%{subject} was successfully updated'
@@ -17,3 +21,6 @@ en:
       page: New page
       problem: New problem
       problem_category: New category
+  delete_confirmation: Are you sure?
+  yes_value: Yes
+  no_value: No

@@ -9,7 +9,7 @@
 	= f.input :moderated, class: 'form-control'
 	= f.input :solved, class: 'form-control'
 	= f.input :likes, class: 'form-control'
-	= f.input :user_id, class: 'form-control'
+	= f.association :author, label_method: :full_name, value_method: :id, class: 'form-control'
 	= f.input :stars, class: 'form-control'
 
     / = f.simple_fields_for :post_attachments do |p|
@@ -18,10 +18,8 @@
     /    <br>
     /    = p.file_field :avatar, :multiple => true, name:     "post_attachments[avatar][]" 
 
-    br
-
     .btn-group.page-form-btn
       = f.button :button, class: 'btn-default' do
-        = fa_icon 'save', text: 'Save'
+        = fa_icon 'save', text: t('crud.save')
       = link_to :back, class: 'btn btn-default' do
-        = fa_icon 'close', text: 'Cancel'
+        = fa_icon 'close', text: t('crud.cancel')

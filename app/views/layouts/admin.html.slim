@@ -4,8 +4,9 @@ html
     title Ecomap | Admin
     = csrf_meta_tags
 
-    = stylesheet_link_tag 'application', media: 'all'
-    = javascript_include_tag 'application'
+    = stylesheet_link_tag 'admin', media: 'all'
+    = javascript_include_tag 'admin'
+
   body.admin
     .container-fluid
       .row
@@ -14,9 +15,21 @@ html
         .col-md-10
           .row
             .col-md-12
+              .notifications.top-right
+          .row
+            .col-md-12
               = render_breadcrumbs('')
           .row
             .col-md-12
               = yield
 
     = any_login_here if Rails.env.development?
+
+  - unless notice.blank?
+    javascript:
+      $(document).ready(function () {
+        $('.notifications').notify({
+          message: { text: "#{notice}" }
+        }).show();
+      });
+

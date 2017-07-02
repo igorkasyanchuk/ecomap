@@ -18,7 +18,7 @@ class Admin::ProblemsController < Admin::ApplicationController
     @problem = Problem.new(problem_params)
 
     if @problem.save
-      redirect_to admin_problem_categories_path, notice: t('crud.created', subject: resource_name)
+      redirect_to admin_problems_path, notice: t('crud.created', subject: resource_name)
     else
       render :new
     end
@@ -33,7 +33,7 @@ class Admin::ProblemsController < Admin::ApplicationController
     @problem = resource
 
     if @problem.update(problem_params)
-      redirect_to admin_problem_categories_path, notice: t('crud.updated', subject: resource_name)
+      redirect_to admin_problems_path, notice: t('crud.updated', subject: resource_name)
     else
       render :edit
     end
@@ -43,7 +43,7 @@ class Admin::ProblemsController < Admin::ApplicationController
     @problem = resource
     @problem.destroy
 
-    redirect_back(fallback_location: admin_problem_categories_path, notice: t('crud.deleted', subject: resource_name))
+    redirect_to admin_problems_path, notice: t('crud.deleted', subject: resource_name)
   end
 
   private

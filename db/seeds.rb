@@ -1,4 +1,8 @@
 require 'factory_girl_rails'
+require 'database_cleaner'
+
+DatabaseCleaner.strategy = :truncation
+DatabaseCleaner.clean
 
 puts "Populate test users...".green
 

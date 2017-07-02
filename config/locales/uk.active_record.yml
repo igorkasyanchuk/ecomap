@@ -18,7 +18,7 @@ uk:
         password_confirmation: Підтвердження паролю
       page:
         title: Заголовок
-        content: Content
+        content: Текст
         slug: Параметер
         created_at: Створено
         updated_at: Обновлено
@@ -26,8 +26,8 @@ uk:
         title: Заголовок
         description: Опис
         solution: Рішення
-        lat: lat
-        lng: lng
+        lat: Широта
+        lng: Довгота
         problem_category_id: Категорія
         moderated: Модеровано
         solved: Вирішено

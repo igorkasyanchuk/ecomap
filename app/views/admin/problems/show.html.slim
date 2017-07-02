@@ -1,0 +1,65 @@
+.well
+  .container-liquid
+    .row
+      .col-md-6
+        h2 = @problem.title
+      .col-md-6.text-right
+        = link_to t('action.edit'), edit_admin_problem_path(@problem), class: 'btn btn-info btn-sm'
+        | &nbsp;
+        = link_to t('action.delete'), admin_problem_path(@problem), method: :delete, class: 'btn btn-danger btn-sm', data: {confirm: t('delete_confirmation')}
+          
+
+    .line-separator.clear
+
+    table.table
+      tr
+        td= Problem.human_attribute_name(:category)
+        td= @problem.problem_category.name
+
+      tr
+        td= Problem.human_attribute_name(:description)
+        td=raw @problem.description
+
+      tr
+        td= Problem.human_attribute_name(:solution)
+        td=raw @problem.solution
+
+      tr
+        td= Problem.human_attribute_name(:moderated)
+        td= yes_no(@problem.moderated)
+
+      tr
+        td= Problem.human_attribute_name(:solved)
+        td= yes_no(@problem.solved)
+
+      - if @problem.author.present?
+        tr
+          td= Problem.human_attribute_name(:user_id)
+          td=raw @problem.author.full_name
+
+      tr
+        td= Problem.human_attribute_name(:likes)
+        td= @problem.likes
+
+      tr
+        td= Problem.human_attribute_name(:stars)
+        td= @problem.stars
+
+      tr
+        td= Problem.human_attribute_name(:lat)
+        td= @problem.lat
+
+      tr
+        td= Problem.human_attribute_name(:lng)
+        td= @problem.lng
+
+      
+      tr
+        td= Problem.human_attribute_name(:created_at)
+        td=l @problem.created_at, format: :long
+      
+      / tr
+      /   td= Problem.human_attribute_name(:photos)
+      /   td.image-preview-list
+      /     - @problem.photos.each do |photo|
+      /       = image_tag photo.attachment.url(:thumb), alt: ''

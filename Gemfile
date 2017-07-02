@@ -27,8 +27,10 @@ gem 'email_validator'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'dotenv-rails'
+gem 'bootstrap_notify'
 
 group :development, :test do
+  gem 'database_cleaner'
   gem 'byebug', platform: :mri
   gem 'pry'
   gem 'any_login'

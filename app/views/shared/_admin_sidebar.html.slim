@@ -6,28 +6,28 @@
     ul#menu-content.menu-content.collapse.out
       li class=active_class_by('admin/dashboard')
         = link_to admin_root_path do
-          = fa_icon 'dashboard lg', text: 'Dashboard'
+          = fa_icon 'dashboard lg', text: t('menu.admin.dashboard')
 
       li class=active_class_by('admin/pages')
         = link_to admin_pages_path do
-          = fa_icon 'file-code-o lg', text: 'Pages'
+          = fa_icon 'file-text-o lg', text: t('menu.admin.pages')
 
       li class=active_class_by('admin/users')
         = link_to admin_users_path do
-          = fa_icon 'users lg', text: 'Users'
+          = fa_icon 'users lg', text: t('menu.admin.users')
 
       li class=active_class_by('admin/problem_categories')
         = link_to admin_problem_categories_path do
-          = fa_icon 'file-code-o lg', text: 'Problem categories'
+          = fa_icon 'list-alt lg', text: t('menu.admin.problem_categories')
 
       li class=active_class_by('admin/problems')
         = link_to admin_problems_path do
-          = fa_icon 'file-code-o lg', text: 'Problems'
+          = fa_icon 'frown-o lg', text: t('menu.admin.problems')
 
       li
         = link_to '#' do
-          = fa_icon 'user lg', text: 'Profile'
+          = fa_icon 'user lg', text: t('menu.admin.profile')
           
       li
         = link_to destroy_user_session_path, method: :delete do
-          = fa_icon 'sign-out lg', text: 'Logout'
+          = fa_icon 'sign-out lg', text: t('menu.admin.logout')
