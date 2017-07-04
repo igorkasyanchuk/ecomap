@@ -21,6 +21,7 @@
 class Problem < ApplicationRecord
   belongs_to :problem_category
   belongs_to :author, foreign_key: :user_id, class_name: 'User', optional: true
+  has_many :photos, dependent: :destroy
 
   def author_name
     if author.present? 

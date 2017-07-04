@@ -2,5 +2,6 @@
 *= require_self
 *= require bootstrap_and_overrides
 *= require bootstrap_notify
+*= require dropzone/dropzone
 *= require admin_styles
 */
