@@ -78,16 +78,16 @@ ActiveRecord::Schema.define(version: 20170702164118) do
     t.string   "title"
     t.text     "description"
     t.text     "solution"
-    t.decimal  "lat"
-    t.decimal  "lng"
+    t.decimal  "lat",                 precision: 18, scale: 14
+    t.decimal  "lng",                 precision: 18, scale: 14
     t.integer  "problem_category_id"
-    t.boolean  "moderated",           default: false
-    t.boolean  "solved",              default: false
-    t.integer  "likes",               default: 0
+    t.boolean  "moderated",                                     default: false
+    t.boolean  "solved",                                        default: false
+    t.integer  "likes",                                         default: 0
     t.integer  "user_id"
-    t.integer  "stars",               default: 3
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.integer  "stars",                                         default: 3
+    t.datetime "created_at",                                                    null: false
+    t.datetime "updated_at",                                                    null: false
     t.index ["problem_category_id"], name: "index_problems_on_problem_category_id", using: :btree
   end
 

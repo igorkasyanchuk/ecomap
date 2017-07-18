@@ -1,25 +1,62 @@
-.form.form-group
-  = simple_form_for [:admin, @problem], method: method do |f|
-  	= f.association  :problem_category, label_method: :name, value_method: :id, include_blank: 'Problem category', class: 'form-control'
-    = f.input :title, class: 'form-control'
-	= f.input :description, class: 'form-control'
-	= f.input :solution, class: 'form-control'
-	= f.input :lat, class: 'form-control'
-	= f.input :lng, class: 'form-control'
-	= f.input :moderated, class: 'form-control'
-	= f.input :solved, class: 'form-control'
-	= f.input :likes, class: 'form-control'
-	= f.association :author, label_method: :full_name, value_method: :id, class: 'form-control'
-	= f.input :stars, class: 'form-control'
+ul.nav.nav-tabs role="tablist"
+  li.active role="presentation" 
+    a href="#general_tab" aria-controls="general_tab" role="tab" data-toggle="tab" General
+  li role="presentation" 
+    a href="#photos_tab" aria-controls="photos_tab" role="tab" data-toggle="tab" Photos
+    
+= simple_form_for [:admin, @problem], method: method, html: {multipart: true, class: 'dropzone-form'} do |form|
+  .tab-content
+    #general_tab.tab-pane.active role="tabpanel"
+      .form.form-group
+        br
+        = form.association  :problem_category, label_method: :name, value_method: :id, include_blank: 'Problem category', class: 'form-control'
+        = form.input :title, class: 'form-control'
+        = form.input :description, class: 'form-control'
+        = form.input :solution, class: 'form-control'
+        = form.input :lat, class: 'form-control'
+        = form.input :lng, class: 'form-control'
+        = form.input :moderated, class: 'form-control'
+        = form.input :solved, class: 'form-control'
+        = form.input :likes, class: 'form-control'
+        = form.association :author, label_method: :full_name, value_method: :id, class: 'form-control'
+        = form.input :stars, class: 'form-control'
 
-    / = f.simple_fields_for :post_attachments do |p|
-    /  .field
-    /    = p.label :avatar
-    /    <br>
-    /    = p.file_field :avatar, :multiple => true, name:     "post_attachments[avatar][]" 
+    #photos_tab.tab-pane.photos-tab role="tabpanel"
+      #photos
+        = form.simple_fields_for :photos do |photo|
+          = render 'photo_fields', f: photo
 
-    .btn-group.page-form-btn
-      = f.button :button, class: 'btn-default' do
-        = fa_icon 'save', text: t('crud.save')
-      = link_to :back, class: 'btn btn-default' do
-        = fa_icon 'close', text: t('crud.cancel')
+      .row
+        .col-lg-12.links
+          = link_to_add_association form, :photos, class: 'btn btn-info' do
+            =<> fa_icon 'plus'
+            | Add photo
+
+  hr/
+  .btn-group
+    = form.button :button, class: 'btn-default' do
+      = fa_icon 'save', text: t('crud.save')
+    = link_to :back, class: 'btn btn-default' do
+      = fa_icon 'close', text: t('crud.cancel')
+
+
+javascript:
+  function show_preview(input) {
+    if (input.files && input.files[0]){
+      reader = new FileReader();
+
+      reader.onload = function(e) {
+        $(input).parents('.photo-controll-group').find('img.uploaded-image-preview').attr('src', e.target.result);
+
+        console.log($(input).parents('.photo-controll-group').find('img.uploaded-image-preview'));
+      }
+
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  $(function(){
+    $('body').on('change', '.upload-image-controll', function()  {
+      show_preview(this);
+    });
+  });

@@ -7,8 +7,8 @@
     = f.input :password, class: 'form-control'
     = f.input :password_confirmation, class: 'form-control'
     
-
-    .btn-group.page-form-btn
+    hr/
+    .btn-group
       = f.button :button, class: 'btn-default' do
         = fa_icon 'save', text: t('crud.save')
       = link_to :back, class: 'btn btn-default' do

@@ -3,3 +3,10 @@
   =require twitter-bootstrap-static/sprites
   =require font-awesome
 */
+
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+}

@@ -14,7 +14,7 @@
     table.table
       tr
         td= Problem.human_attribute_name(:category)
-        td= @problem.problem_category.name
+        td= @problem.problem_category&.name
 
       tr
         td= Problem.human_attribute_name(:description)
@@ -58,8 +58,12 @@
         td= Problem.human_attribute_name(:created_at)
         td=l @problem.created_at, format: :long
       
-      / tr
-      /   td= Problem.human_attribute_name(:photos)
-      /   td.image-preview-list
-      /     - @problem.photos.each do |photo|
-      /       = image_tag photo.attachment.url(:thumb), alt: ''
+      tr
+        td= Problem.human_attribute_name(:photos)
+        td.image-preview-list
+          .row.row-eq-height
+            - @problem.photos.each do |photo|
+              .col-xs-2
+                = image_tag photo.image.url, class: 'img-responsive img-thumbnail'
+                p
+                  = photo.description

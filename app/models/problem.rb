@@ -21,7 +21,11 @@
 class Problem < ApplicationRecord
   belongs_to :problem_category
   belongs_to :author, foreign_key: :user_id, class_name: 'User', optional: true
-  has_many :photos, dependent: :destroy
+  has_many :photos, dependent: :destroy, inverse_of: :problem
+
+  accepts_nested_attributes_for :photos, reject_if: proc { |attributes| attributes['image'].blank? }, allow_destroy: true
+
+  validates_presence_of :title, :description, :lat, :lng, :problem_category_id
 
   def author_name
     if author.present? 

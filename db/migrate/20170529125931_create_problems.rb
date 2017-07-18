@@ -4,8 +4,8 @@ class CreateProblems < ActiveRecord::Migration[5.0]
       t.string :title
       t.text :description
       t.text :solution
-      t.decimal :lat
-      t.decimal :lng
+      t.decimal :lat, precision: 18, scale: 14
+      t.decimal :lng, precision: 18, scale: 14
       t.references :problem_category, foreign_key: true
       t.boolean :moderated, default: false
       t.boolean :solved, default: false

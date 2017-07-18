@@ -55,11 +55,13 @@ class Admin::ProblemsController < Admin::ApplicationController
   def problem_params
     params.require(:problem).permit(
       :title, :description, :solution, :lat, :lng, :problem_category_id, 
-      :moderated, :solved, :likes, :user_id, :stars
+      :moderated, :solved, :likes, :user_id, :stars,
+      photos_attributes: [:id, :problem_id, :image, :description, :_destroy]
     )
   end
 
   def resource_name
     Problem.model_name.human
   end
+
 end

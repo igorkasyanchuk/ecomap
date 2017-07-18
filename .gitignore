@@ -28,6 +28,7 @@
 # Ignore public files
 public/system/
 public/system/*
+public/uploads/*
 
 public/assets/
 public/assets/*

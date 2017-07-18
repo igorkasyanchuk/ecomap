@@ -67,6 +67,7 @@ GEM
     climate_control (0.2.0)
     cocaine (0.5.8)
       climate_control (>= 0.0.3, < 1.0)
+    cocoon (1.2.9)
     coderay (1.1.1)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -91,6 +92,8 @@ GEM
     dotenv-rails (2.1.1)
       dotenv (= 2.1.1)
       railties (>= 4.0, < 5.1)
+    dropzonejs-rails (0.7.3)
+      rails (> 3.1)
     email_validator (1.6.0)
       activemodel
     erubis (2.7.0)
@@ -316,11 +319,13 @@ DEPENDENCIES
   byebug
   carrierwave
   ckeditor
+  cocoon
   coffee-rails (~> 4.2)
   colorize
   database_cleaner
   devise
   dotenv-rails
+  dropzonejs-rails
   email_validator
   factory_girl_rails
   faker

@@ -28,6 +28,8 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'dotenv-rails'
 gem 'bootstrap_notify'
+gem 'dropzonejs-rails'
+gem 'cocoon'
 
 group :development, :test do
   gem 'database_cleaner'
