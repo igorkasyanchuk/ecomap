@@ -1,0 +1,57 @@
+#template.hidden
+  .dz-preview.dz-file-preview
+    .dz-image
+      img data-dz-thumbnail="" /
+      textarea.description name="problem[photos][description]" 
+    .dz-details
+      .dz-size
+        span data-dz-size="" 
+      .dz-filename
+        span data-dz-name="" 
+    .dz-progress
+      span.dz-upload data-dz-uploadprogress="" 
+    .dz-error-message
+      span data-dz-errormessage="" 
+     
+
+
+
+javascript:
+  $(document).ready(function(){
+    // disable auto discover
+    Dropzone.autoDiscover = false;
+
+    // grap our upload form by its id
+    $(".dropzone-form").dropzone({
+      maxFilesize: 10, // restrict image size to a maximum 10MB
+
+      // changed the passed param to one accepted by our rails app
+      paramName: "problem[photos][image]",
+
+      // show remove links on each image upload
+      //addRemoveLinks: true,
+      dictDefaultMessage: "something...",
+      autoProcessQueue: false,
+      uploadMultiple: true,
+      parallelUploads: 5,
+      maxFiles: 20,
+      previewTemplate: document.querySelector('#template').innerHTML,
+      previewsContainer: "#dropzone-previews",
+
+      init: function() {
+        var self = this;
+        var $submit_btn = $(this.element.querySelector("button[type=submit]"));
+        
+        $submit_btn.on("click", function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          self.processQueue();
+        });
+
+        // self.on("sending", function(file, xhr, formData) {
+        //   var str = $(file.previewElement).find("textarea.description").val();
+        //   formData.append("problem[photos][description][]", str);
+        // });
+      }
+    });
+  });
