@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
-
+  devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks" }
+  
   scope '(:locale)', local: /[a-z_\-]{2,6}}/i do
-    devise_for :users, skip: :omniauth_callbacks
+    #devise_for :users, skip: :omniauth_callbacks
     resources :pages, only: [:show]
 
     root 'site#index'
