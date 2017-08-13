@@ -6,8 +6,8 @@
 #  title               :string
 #  description         :text
 #  solution            :text
-#  lat                 :decimal(, )
-#  lng                 :decimal(, )
+#  lat                 :decimal(18, 14)
+#  lng                 :decimal(18, 14)
 #  problem_category_id :integer
 #  moderated           :boolean          default(FALSE)
 #  solved              :boolean          default(FALSE)

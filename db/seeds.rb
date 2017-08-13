@@ -29,5 +29,11 @@ end
 puts "Populate problems...".green
 ProblemCategory.find_each do |category|
   problem = FactoryGirl.create :problem, problem_category: category
+  user = User.first
+
+  rand(10).times do |_i|
+    problem.comments << FactoryGirl.create(:comment, author: user)
+  end
+
   puts "\t #{problem.title} ".yellow
 end

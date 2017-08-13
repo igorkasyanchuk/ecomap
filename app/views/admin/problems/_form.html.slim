@@ -3,6 +3,8 @@ ul.nav.nav-tabs role="tablist"
     a href="#general_tab" aria-controls="general_tab" role="tab" data-toggle="tab" General
   li role="presentation" 
     a href="#photos_tab" aria-controls="photos_tab" role="tab" data-toggle="tab" Photos
+  li role="presentation" 
+    a href="#coords_tab" aria-controls="coords_tab" role="tab" data-toggle="tab" Coordinates
     
 = simple_form_for [:admin, @problem], method: method, html: {multipart: true, class: 'dropzone-form'} do |form|
   .tab-content
@@ -13,8 +15,6 @@ ul.nav.nav-tabs role="tablist"
         = form.input :title, class: 'form-control'
         = form.input :description, class: 'form-control'
         = form.input :solution, class: 'form-control'
-        = form.input :lat, class: 'form-control'
-        = form.input :lng, class: 'form-control'
         = form.input :moderated, class: 'form-control'
         = form.input :solved, class: 'form-control'
         = form.input :likes, class: 'form-control'
@@ -31,6 +31,18 @@ ul.nav.nav-tabs role="tablist"
           = link_to_add_association form, :photos, class: 'btn btn-info' do
             =<> fa_icon 'plus'
             | Add photo
+
+    #coords_tab.tab-pane.photos-tab role="tabpanel"
+      .row
+        .col-lg-12
+          = form.input :lat, class: 'form-control'
+      .row
+        .col-lg-12
+          = form.input :lng, class: 'form-control'
+      hr/
+      .row
+        .col-lg-12
+          #map
 
   hr/
   .btn-group
@@ -60,3 +72,58 @@ javascript:
       show_preview(this);
     });
   });
+
+- content_for :scripts do
+  javascript:
+    function initMap() {
+      var mapCenter  = {lat: 48.909367, lng: 24.710889};
+      var mapCanvas  = document.getElementById('map');
+      var mapOptions = {
+        zoom: 12,
+        center: mapCenter
+      };
+
+      var marker;
+      var map = new google.maps.Map(mapCanvas, mapOptions);
+
+      google.maps.event.addListener(map, 'click', function(event) {
+        marker = update_marker(map, marker, event.latLng);
+        update_form_fields(marker);
+      });
+
+      resize_map();
+    }
+
+    function update_marker(map, marker, location) {
+      if (marker) {
+        marker.setPosition(location);
+      } else {
+        marker = new google.maps.Marker({
+          position: location,
+          map: map
+        });
+      }
+
+      return marker;
+    }
+
+    function update_form_fields(marker) {
+      var lat = marker.getPosition().lat();
+      var lng = marker.getPosition().lng();
+      
+      $('#problem_lat').val(lat);
+      $('#problem_lng').val(lng);
+    }
+
+    function resize_map() {
+      var element = document.getElementById('map');
+
+      element.style.height = window.innerHeight - 90 + 'px';
+      element.style.width  = element.parentElement.offsetWidth - 30 + 'px';
+    }
+
+    window.onresize = function(e) {
+      resize_map();
+    }
+
+  script async="" src="https://maps.googleapis.com/maps/api/js?key=#{Rails.application.secrets[:google_api_key]}&callback=initMap"

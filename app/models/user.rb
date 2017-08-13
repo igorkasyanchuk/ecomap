@@ -28,6 +28,7 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: Identity::OMNIAUTH_PROVIDERS
 
   has_many :identities, dependent: :restrict_with_exception
+  has_many :comments, :as => :commentable, :dependent => :destroy
 
   enum role: %i(user moderator admin)
 
